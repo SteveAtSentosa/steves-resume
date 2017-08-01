@@ -141,7 +141,7 @@ export default function Resume(props) {
               { header: 'Content Sharing Web App'
               , shots : [
                 { title: 'Social Content Portal', imagePath: 'http://i.imgur.com/0zHkQuR.png'},
-                { title: 'Content Purchase', imagePath: 'http://i.imgur.com/PwIYE8f.png'}
+                { title: 'Content Purchase', imagePath: 'http://i.imgur.com/yFzNzid.png'}
               ]
             }
           }

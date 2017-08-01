@@ -215,7 +215,6 @@ export function ScreenShot({screenShots, onClose}) {
       // , ce(Divider, {className:css('mt:25')})
       , ce('div', {className:css('c@text.accent', 'mt:40',' mb:5')},shot.title)
       , ce(Paper,{className:css('p:10'), zDepth:3}
-        // ,ce('img', {src:require(`${shot.imagePath}`),width:'100%'}))
         , ce('img', {src:shot.imagePath,width:'100%'}))
       )
     )
