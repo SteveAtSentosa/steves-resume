@@ -1,7 +1,4 @@
 // TODO
-// * Styling tweaks
-//   - 'sampleing' text grey, 'other projeccts', same as 'sampling'
-// * images working on local prod server
 // * production build working on dig ocean
 // * production node server up an running on DO
 // * get rid of muiTheme

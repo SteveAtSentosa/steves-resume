@@ -160,6 +160,7 @@ function ProjectRaw(props) {
       , ce(Dialog
         , { modal: true
         , autoScrollBodyContent: true
+        , autoDetectWindowHeight: true
         , contentStyle:{maxWidth: 960}
         , open: screenShotsOpen }
           , ce(ScreenShot, {screenShots, onClose:()=>setScreenShotsOpen(false)})
