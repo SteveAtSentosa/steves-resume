@@ -22,7 +22,6 @@ import { Paragraph, Skillset, Company, Project, Bullet, ScreenShot } from './Res
 
 export default function Resume(props) {
 
-  const { ticketScreenShotOpen } = props;
   const cn = {
     name: css('fz:2em', 'c:@text.dark'),
     contact: css('fz:90%', 'c:@text.light'),
@@ -126,8 +125,8 @@ export default function Resume(props) {
           , screenShots :
               { header: 'Metro Ethernet Service Platform'
               , shots : [
-                { title: 'Problem Tickets', imagePath: './assets/screenshot-tickets-1.png'},
-                { title: 'Ticket Labels', imagePath: './assets/screenshot-tickets-2.png'}
+                { title: 'Problem Tickets', imagePath: 'http://i.imgur.com/ATyhlmn.png'},
+                { title: 'Ticket Labels', imagePath: 'http://i.imgur.com/PwIYE8f.png'}
               ]
             }
           }
@@ -144,8 +143,8 @@ export default function Resume(props) {
           , screenShots :
               { header: 'Content Sharing Web App'
               , shots : [
-                { title: 'Social Content Portal', imagePath: './assets/screenshot-content-portal-1.png'},
-                { title: 'Content Purchase', imagePath: './assets/screenshot-content-portal-2.png'}
+                { title: 'Social Content Portal', imagePath: 'http://i.imgur.com/0zHkQuR.png'},
+                { title: 'Content Purchase', imagePath: 'http://i.imgur.com/PwIYE8f.png'}
               ]
             }
           }
