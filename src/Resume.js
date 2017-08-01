@@ -117,7 +117,7 @@ export default function Resume(props) {
         , ce(Project,
           { name:'Web Front End Development: Metro Ethernet Service Platform'
           , customer: 'Kyrio/CableLabs'
-          , dateRange: 'Jan 2016 - June 2016 (6 months)'
+          , dateRange: 'July 2016 - June 2017 (1 year)'
           , activities:
             [ 'I coded ~30,000 lines of React.js based Javascript and inline css in creating web interfaces for issue tracking, network adjacency, labeling, service site management, task management, and others'
             , 'Supporting technologies: Redux, React Router, webpack, node.js, REST, npm, git'
@@ -135,7 +135,7 @@ export default function Resume(props) {
         , ce(Project,
           { name:'Web Front End Development: Content Portal and Blockchain Navigator'
           , customer: 'CableLabs'
-          , dateRange: 'July 2016 - June 2017 (1 year)'
+          , dateRange: 'Jan 2016 - June 2016 (6 months)'
           , activities:
             [ 'I coded ~12,000 lines of Angular based Javascript, css and HTML  in creating web interfaces for Block Chain explorer, content provider portal, content distributor portal, blockchain transaction manger, and others'
             , 'Supporting technologies: less, npm, grunt, node.js, REST, git'
@@ -219,6 +219,8 @@ export default function Resume(props) {
           , { name: 'CableLabs'
           , title: 'Director of Home Networking'
           , dateRange: '2000 - 2005'
+          , roles : [ 'CableLabs is a research and development consortium jointly funded by cable companies' ]
+
           }
         )
         , ce(Project,
