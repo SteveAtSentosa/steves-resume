@@ -73,14 +73,19 @@ Company.propTypes = {
   name: PT.string.isRequired,
   title: PT.string.isRequired,
   dateRange: PT.string,
-  roles: PT.arrayOf(PT.string)
+  roles: PT.arrayOf(PT.string),
+  first: PT.bool
 };
 
-export function Company ({name, title, dateRange, roles}) {
+Company.defaultProps = {
+  first: false
+};
+
+export function Company ({name, title, dateRange, roles, first}) {
 
   const cn = {
-    root: css('mb:20'),
-    name: css('c:@text.dark', 'fz:110%', 'mb:0', 'fw:b'),
+    root: css('mb:10', first ? '':'mt:30'),
+    name: css('c:@text.dark', 'fz:120%', 'mb:0', 'fw:b'),
     title: css('c:@text.normal', 'fz:90%', 'fw:b', 'mr:10'),
     dateRange: css('c:@text.light', 'fz:75%'),
     roles: css('c:@text.normal', 'fz:85%'),
@@ -130,13 +135,16 @@ function ProjectRaw(props) {
   const cn = {
     root: css('mb:20', 'fz:90%'),
     name: css('c:@text.accent'),
-    cust: css('c:@text.normal', 'mb:5')
+    subtitle: css('c:@text.normal', 'fz:95%', 'mb:5')
   };
+
+  var subtitle = customer ? customer : '';
+  subtitle = `${subtitle} ${customer && dateRange ? ' | ' :''}`;
+  subtitle = `${subtitle} ${dateRange ? dateRange :''}`;
 
   return ( ce('div', {className:cn.root }
     , ce('div',{className:cn.name}, name)
-    , ( customer || dateRange ) &&
-      ce('div', {className:cn.cust}, `Customer: ${customer} | ${dateRange}`)
+    , subtitle && ce('div', {className:cn.subtitle}, subtitle)
     , activities.map((activity,key)=>ce(Bullet,{key,text:activity}))
 
     , screenShots && ce('div', 0

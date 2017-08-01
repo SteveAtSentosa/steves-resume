@@ -1,14 +1,13 @@
 // TODO
-// * production node server up an running locally
+// * Styling tweaks
+//   - 'sampleing' text grey, 'other projeccts', same as 'sampling'
+// * images working on local prod server
+// * production build working on dig ocean
 // * production node server up an running on DO
-// * text in opening summaries smaller
-// * fill out job descriptions
 // * get rid of muiTheme
-// * email address link
-// * linkedin link
 // * icon tab thingy
 // * additional screen shots
-// x steves-resume.com pointing to droplet
+// refereince github repo
 
 
 import React, { createElement as ce } from 'react';
@@ -27,28 +26,38 @@ export default function Resume(props) {
   const cn = {
     name: css('fz:2em', 'c:@text.dark'),
     contact: css('fz:90%', 'c:@text.light'),
-    header: css('mt:40', 'mb:5', 'c:@text.dark', 'fz:130%')
+    repo: css('fz:90%', 'c:@text.light'),
+    header: css('mt:40', 'mb:5', 'c:@text.dark', 'fz:120%')
   };
 
   return(
     ce(Paper,{ className:css('m:20','p:20') }
 
-    , ce('div', { className:cn.name}, 'Steve Saunders')
+    , ce('div', { className:cn.name}, 'Steven Saunders')
     , ce('div', { className:cn.contact }, 'Founder, Sentosa Technology Consultants')
-    , ce('div', { className:cn.contact }, 'steve@sentosatech.com | 303-809-8043 | linkedin')
+    , ce('div', { className:cn.contact }
+      , ce('a',{href:'mailto:steve@sentosatech.com'},'steve@sentosatech.com')
+      , ce('span',0,' | ')
+      , ce('a',{href:'https://www.linkedin.com/in/steven-saunders-783a355'},'Linkedin')
+      , ce('span',0,' | 303-809-8043')
+    )
+    , ce('div', { className:cn.repo }
+      , ce('span',0, 'I wrote the code for this resume in React, the github repo is')
+      , ce('a',{href:'https://github.com/SteveAtSentosa/steves-resume'},' here')
+    )
 
     // Overview
 
     , ce('div', { className:cn.header}, 'Overview')
-    , ce(Paper, { className:css('p:20', 'bgc:@bg.lightGray') }
+    , ce(Paper, { className:css('p:20', 'bgc:@bg.lightGray', 'fz:90%') }
       , ce(Paragraph,{text:'I founded Sentosa Technologies 9 years ago, with a focus on providing software development services to the cable television industry.  Over the years I, and my team, have worked on a wide variety of cable focused applications ranging from video to advanced advertising to security to broadband.'})
-      , ce(Paragraph,{last:true, text:'The last 3 years I personally have focused on developing modern, data driven responsive javascript based web front end applications, in both the Angular and React frameworks.  I love the blend of visual and technical challenges that this type of development entails.'})
+      , ce(Paragraph,{last:true, text:'The last 3 years I personally have focused on developing modern, data driven, responsive Javascript based web front end applications, in both the Angular and React frameworks.  I love the blend of visual and technical challenges that this type of development entails.'})
       )
 
     // Technologies
 
     , ce('div', { className:cn.header}, 'Technologies')
-    , ce(Paper, { className:css('p:20', 'bgc:@bg.lightGray') }
+    , ce(Paper, { className:css('p:20', 'bgc:@bg.lightGray', 'fz:90%') }
       , ce(Skillset
         , { header:'Languages'
         , skills : [
@@ -69,7 +78,7 @@ export default function Resume(props) {
         , { header:'Web Front End Frameworks and Tools'
         , skills : [
           { name: 'Development'
-          , description: 'React, React Router, Redux, Angular, webpack, npm, node.js'
+          , description: 'React, React Router, Redux, Angular, webpack, grunt, npm, node.js'
           }
           , { name: 'Testing'
           , description: 'Selenium, nightwatch, jest'
@@ -79,7 +88,7 @@ export default function Resume(props) {
         , { last: true
         , header:'Application Domains'
         , skills : [
-          { description: 'MPEG video, video streaming, set top guide and VOD apps, security (DCAS/Blockchain),  business services (MEF), advanced advertising, broadband capacity forecasting, and others.'
+          { description: 'MPEG video, video streaming, set top guide and VOD apps, security (DCAS/Blockchain),  business services (MEF), advanced advertising, broadband capacity forecasting, and others'
           }
         ]})
       )
@@ -99,10 +108,12 @@ export default function Resume(props) {
           [ 'Currently about 15 folks on staff, annual revenue ~$2M'
           , 'I focus on writing great software for my customers in addition to growing my team and the business'
           ]
+        , first: true
         })
 
-        , ce('div', {className:css('fs:80%', 'c:@text.normal', 'mb:10')}, 'Javascript/Web UI Project Sampling')
-
+        , ce('div', {className:css('fz:90%', 'c:@text.light', 'mt:20', 'mb:10')}
+          , 'Sampling of Projects That I Have Personally Worked On'
+        )
         , ce(Project,
           { name:'Web Front End Development: Metro Ethernet Service Platform'
           , customer: 'Kyrio/CableLabs'
@@ -129,6 +140,14 @@ export default function Resume(props) {
             [ 'I coded ~12,000 lines of Angular based Javascript, css and HTML  in creating web interfaces for Block Chain explorer, content provider portal, content distributor portal, blockchain transaction manger, and others'
             , 'Supporting technologies: less, npm, grunt, node.js, REST, git'
             ]
+
+          , screenShots :
+              { header: 'Content Sharing Web App'
+              , shots : [
+                { title: 'Social Content Portal', imagePath: './assets/screenshot-content-portal-1.png'},
+                { title: 'Content Purchase', imagePath: './assets/screenshot-content-portal-2.png'}
+              ]
+            }
           }
         )
         , ce(Project,
@@ -143,14 +162,13 @@ export default function Resume(props) {
             ]
           }
         )
-
         , ce(Project,
-          { name:'Other projects that I personally worked on'
+          { name:'Other Projects'
           , activities:
             [ 'Open Cable Application Platform reference implementation (Java coding)'
-            , 'HBO Single singon (SAML/Java Coding)'
+            , 'HBO Single sing-on (SAML/Java Coding)'
             , 'HLS Streaming for DirectTV NFL Live (managed)'
-            , 'Embeded webkit integration (managed)'
+            , 'Embedded webkit integration (managed)'
             ]
           }
         )
@@ -158,21 +176,21 @@ export default function Resume(props) {
         // Independent Consultant
 
         , ce(Company
-          , { name: 'Indpendend Conslutant'
+          , { name: 'Independent Consultant'
           , title: 'Software Developer'
           , dateRange: '2006 - 2007'
           })
         , ce(Project,
           { name:'Downloadable Conditional Access (as specified by PolyCipher)'
           , customer: 'Time Warner Cable'
-          , dateRange: '2006-2007 (1 year)'
-          , activities: [ 'Contributed to C/C++ based set top downloadable conditional access clent and server' ]
+          , dateRange: '2006-2007'
+          , activities: [ 'Developed to C/C++ based set top downloadable conditional access clent and server' ]
           }
         )
         , ce(Project,
           { name:'DOCSIS Network Capacity Forecasting'
           , customer: 'Cox Communications'
-          , dateRange: 'June 2007 - Dec 2007 (6 months)'
+          , dateRange: 'June 2007 - Dec 2007'
           , activities: [ 'Developed PHP based broadband network growth, usage, and capacity simulator' ]
           }
         )
@@ -183,19 +201,48 @@ export default function Resume(props) {
           , { name: 'Digeo'
           , title: 'Director of Firmware Development'
           , dateRange: '2005 - 2006'
-          , roles : [ 'Managed firmware team for delivery of advanced multi room STB/DVR capability' ]
+          , roles : [ 'Digeo designed and developed advanced set top silicon, firmware, hardware and software' ]
           })
+        , ce(Project,
+          { name:'Firmware Team Management'
+          , activities:
+            [ 'Conducted scheduling, risk assessment, hiring, performance reviews, etc'
+            , 'Created STB and firmware testing group, including test procedures'
+            , 'Coordinated with other development and program management groups'
+            ]
+          }
+        )
 
-          // CableLabs
+        // CableLabs
 
         , ce(Company
           , { name: 'CableLabs'
           , title: 'Director of Home Networking'
           , dateRange: '2000 - 2005'
-          , roles :
-            [ 'Drove CableHome effort, an industry wide home networking management, security and QoS specification'
-            , 'Participated in many standards bodies including ITU, SCTE, UPnP'
-            , 'Contributed to cable industry Next Generate Network Archtiect (NGNA)'
+          }
+        )
+        , ce(Project,
+          { name:'CableHome Lead Architect'
+          , activities:
+            [ 'Drove CableHome effort, a cable based industry wide home networking management, security, QoS, and video distribution specification'
+            , 'Participated in many standards bodies including ITU, SCTE, UPnP, promoting the CableHome agenda'
+            , 'Spoke at many industry events, primarily  covering home networking and home video distribution'
+            , 'Wrote several home networking focused articles and strategic reports'
+            ]
+          }
+        )
+        , ce(Project,
+          { name:'Next Generate Network Architecture (NGNA)'
+          , activities:
+            [ 'Lead team providing recommendations for video streaming in the home'
+            , 'Contributed to home networking portion of industry wide NGNA document'
+            ]
+          }
+        )
+        , ce(Project,
+          { name:'Open Cable Application Platform (OCAP)'
+          , activities:
+            [ 'Contributed to the OCAP spec, and test suite (Java based)'
             ]
           }
         )
@@ -204,27 +251,81 @@ export default function Resume(props) {
 
         , ce(Company
           , { name: 'Vexcel Imaging'
-          , title: 'Software Engineer, Manager of Software team'
+          , title: 'Software Engineer, Manager of Software Team'
           , dateRange: '1996 - 2000'
-          , roles :
-            [ 'Wrote C++ based image proccesing and scanner control software'
-            , 'Managed Software Team'
-            , 'Managed manufacturing deprtment on temporary assignemnt'
+          , roles : [ 'Vexcel designed and manufactured aerial photography scanners and image processing software' ]
+          }
+        )
+        , ce(Project,
+          { name:'Software Developer'
+          , dateRange: '1996-1998'
+          , activities:
+            [ 'Developed scanner control and digitization software (C++)'
+            , 'Developed scanner calibration and correction software (C++)'
+            , 'Developed aerial photography image processing software (C++)'
             ]
+          }
+        )
+        , ce(Project,
+          { name:'Software Team Manager'
+          , dateRange: '1998-2000'
+          , activities:
+            [ 'Conducted scheduling, risk assessment, hiring, performance reviews, etc'
+            , 'Continued with software development contributions as well '
+            ]
+          }
+        )
+        , ce(Project,
+          { name:'Interim Director of Manufacturing'
+          , dateRange: 'Part of 2000'
+          , activities:
+            [ 'Took on leadership of the manufacturing team after VP of manufacturing was laid off']
           }
         )
 
         // SDRC / Autotrol
 
         , ce(Company
-          , { name: 'Autotrol & SDRC'
+          , { name: 'Structural Dynamics Research Corporation (SDRC)'
           , title: 'Software Engineer'
           , dateRange: '1990 - 1995'
           , roles :
-            [ 'Developed C based graphics and engineering anaysis software (CAD)'
+            [ 'SDRC Develops advanced engineering modeling, graphics and analysis software'
             ]
           }
         )
+        , ce(Project,
+          { name:'Software Engineer'
+          , activities:
+            [ 'Developed finite element meshing and analysis software (C Based)'
+            , 'Developed engineering material database and selection capability (C Based)'
+            , 'Contributed to various graphical processing and display efforts'
+            ]
+          }
+        )
+      )
+
+      // Work History
+
+      , ce('div', { className:cn.header}, 'Education')
+      , ce(Paper, { className:css('p:20', 'bgc:@bg.lightGray') }
+        , ce(Project,
+          { name:'Colorado State University'
+          , activities:
+            [ 'BS: Mechanical Engineering'
+            , 'Graduate course work: graphics, advanced dynamics, and statistical thermodynamics'
+            ]
+          }
+        )
+        , ce(Project,
+          { name:'Ongoing (over the years)'
+          , activities:
+            [ 'Graduate coursework: differential equations, engineering analysis, object oriented programming'
+            , 'Online courswork (pluralsite.com, sitepoint.com, etc): Javasript, angular, react'
+            ]
+          }
+        )
+
       )
     )
   );
